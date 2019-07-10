@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <span>Conocimientos</span>
+</mat-toolbar>
+
+<mat-list>  
+  <mat-list-item *ngFor="let skill of list">
+    <mat-icon mat-list-icon>star</mat-icon>
+    <h4 mat-line>{{skill.title}}</h4>
+    <p mat-line> {{skill.description}} </p>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+</mat-list>
+
+<mat-grid-list cols="4" rowHeight="200px">
+  <mat-grid-tile *ngFor="let item of categoryList" [colspan]=1 [rowspan]=1>
+    <app-category-card [category]=item (skills)=onChangeCategory($event)></app-category-card>
+  </mat-grid-tile>
+</mat-grid-list>
